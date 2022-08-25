@@ -8,13 +8,13 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import "../styles.css";
-import { FastMove } from "../Api.js";
+import { HomeDeco } from "../Api.js";
 // import required modules
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
-export default function FastMoveProduct() {
+export default function HomeDecor() {
   const navigat = useNavigate();
   const handleData = (id) => {
     navigat("/singlePage/" + id);
@@ -33,8 +33,8 @@ export default function FastMoveProduct() {
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
       >
-        {FastMove.map((i) => (
-          <SwiperSlide>
+        {HomeDeco?.map((i) => (
+          <SwiperSlide backgroundColor="rgb(239,239,239)">
             <Box
               onClick={() => handleData(i.id)}
               key={i.id}
