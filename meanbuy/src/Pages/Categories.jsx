@@ -27,20 +27,20 @@ const Recomandation = () => {
   return (
     <>
       <PopoverTrigger>
-        <Text fontSize="14px">Categories &nbsp;&nbsp;&nbsp; ▼</Text>
+        <Text cursor="pointer" fontSize="14px">Categories &nbsp;&nbsp;&nbsp; ▼</Text>
       </PopoverTrigger>
       {/* /////////////////////////// */}
       <PopoverContent
         zIndex={4}
-        w="1000px"
+        w="1200px"
         border="1px solid lightgrey"
-        backgroundColor="rgb(246,245,244)"
+        backgroundColor="white"
       >
         {/* <PopoverHeader fontWeight="semibold" border="none"></PopoverHeader> */}
 
-        <PopoverBody>
-          <TableContainer>
-            <Table variant="simple">
+        <PopoverBody height="350px" overflow="scroll" >
+          <TableContainer >
+            <Table variant="simple" size="sm">
               <Thead>
                 <Tr>
                   <Th>
