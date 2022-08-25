@@ -8,13 +8,13 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import "../styles.css";
-import { FastMove } from "../Api.js";
+import { KitchenWare } from "../Api.js";
 // import required modules
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
-export default function FastMoveProduct() {
+export default function KitchenWares() {
   const navigat = useNavigate();
   const handleData = (id) => {
     navigat("/singlePage/" + id);
@@ -33,17 +33,17 @@ export default function FastMoveProduct() {
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
       >
-        {FastMove.map((i) => (
-          <SwiperSlide>
-            <Box
-              onClick={() => handleData(i.id)}
-              key={i.id}
-             
-              margin="8px"
-            >
+        {KitchenWare?.map((i) => (
+          <SwiperSlide backgroundColor="rgb(239,239,239)">
+            <Box onClick={() => handleData(i.id)} key={i.id} margin="8px">
               <img src={i.image} width="220" height="220" alt={i.id} />
               <Text fontSize="sm">{i.name}</Text>
-              <Box textAlign="right" fontSize="13px" margin="10px"  borderBottom="1px solid lightgray">
+              <Box
+                textAlign="right"
+                fontSize="13px"
+                margin="10px"
+                borderBottom="1px solid lightgray"
+              >
                 <button
                   style={{
                     backgroundColor: "rgb(60,193,1)",
@@ -55,8 +55,11 @@ export default function FastMoveProduct() {
                   {i.rating} ☆
                 </button>
               </Box>
-              <Flex  justifyContent="space-between">
-                 <Text color="rgb(251,176,104)">₹ {i.price}</Text> <Text fontSize='md' color="rgb(46,151,69)">{i.off}</Text>
+              <Flex justifyContent="space-between">
+                <Text color="rgb(251,176,104)">₹ {i.price}</Text>{" "}
+                <Text fontSize="md" color="rgb(46,151,69)">
+                  {i.off}
+                </Text>
               </Flex>
             </Box>
           </SwiperSlide>

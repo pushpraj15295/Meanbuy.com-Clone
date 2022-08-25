@@ -12,7 +12,7 @@ import "../styles.css";
 // import required modules
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 
-export default function ImageSwiper() {
+export default function TopSellingBrands() {
   return (
     <>
       <Swiper
@@ -20,15 +20,14 @@ export default function ImageSwiper() {
         navigation={true}
         pagination={true}
         mousewheel={true}
-        keyboard={true}
         loop={true}
+        keyboard={true}
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
       >
-        <SwiperSlide><img src="https://d64lkarmo2mrq.cloudfront.net/img/home/watch-banner4.webp" alt="4" /></SwiperSlide>
-        <SwiperSlide><img src="https://d64lkarmo2mrq.cloudfront.net/img/home/bluetooth2022.webp" alt="3" /></SwiperSlide>
-        <SwiperSlide><img src="https://d64lkarmo2mrq.cloudfront.net/img/home/womenswatches2022.webp" alt="2" /></SwiperSlide>
-        <SwiperSlide><img src="https://d64lkarmo2mrq.cloudfront.net/img/home/nordic2022.webp" alt="1" /></SwiperSlide>
+        <SwiperSlide><img src="https://d64lkarmo2mrq.cloudfront.net/img/home/brandbanner1.webp" alt="4" /></SwiperSlide>
+        <SwiperSlide><img src="https://d64lkarmo2mrq.cloudfront.net/img/home/brandbanner2.webp" alt="3" /></SwiperSlide>
+       
        
       </Swiper>
     </>
