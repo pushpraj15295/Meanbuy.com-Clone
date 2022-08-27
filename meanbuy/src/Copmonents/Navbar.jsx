@@ -10,11 +10,14 @@ import {
   Popover,
   Text,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Recomandation from "../Pages/Categories";
+import { AppContext } from "../Context/AppContext";
+import LogOut from "../Pages/LogOut";
 
 const Navbar = () => {
+  const { auth, setAuth } = useContext(AppContext);
   const [value, setValue] = React.useState("");
   const handleChange = (event) => setValue(event.target.value);
   const nav = useNavigate();
@@ -73,7 +76,7 @@ const Navbar = () => {
               <Link to="#"> Delivery Info</Link>
             </Flex>
           </Box>
-          <Box>
+          <Box style={{ display: auth && "none" }}>
             <Flex gap="0.3rem" fontSize="14">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -107,11 +110,14 @@ const Navbar = () => {
             </svg>
             <Text fontSize="10px">0</Text>
           </Flex>
+          <Box style={{ display: !auth && "none" }}>
+            <LogOut/>
+          </Box>
         </Flex>
       </Flex>
       <Box padding="16px">
         <Flex marginLeft="250px" gap="3rem" fontSize="12px">
-          <Popover >
+          <Popover>
             <Recomandation />
           </Popover>
           <Link to="#">Flash Sale</Link>
