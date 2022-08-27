@@ -1,0 +1,15 @@
+.footer{
+    position: absolute;
+    width: 100%;
+    background-color: rgb(242,242,242);
+    height: 400px;
+    border-bottom: 1px solid gray;
+}
+h2{
+    color:rgb(243,153,50);
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+p{
+    font-size: 12px;
+}
