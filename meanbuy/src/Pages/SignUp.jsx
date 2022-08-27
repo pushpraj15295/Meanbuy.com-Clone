@@ -8,10 +8,39 @@ import {
     SimpleGrid,
     Text,
   } from "@chakra-ui/react";
-  import React from "react";
-  import { Link } from "react-router-dom";
+  import React, { useContext, useState } from "react";
+  import { Link, useNavigate } from "react-router-dom";
+import { AppContext } from "../Context/AppContext";
   
   const SignUp = () => {
+    const navigat = useNavigate();
+    const init={
+      email:"",
+      password:"",
+      confirm_pass:""
+    }
+    const [text,setText] = useState(init)
+    // const [formData ,setFormData] = useState([])
+    const {formData,setFormData} = useContext(AppContext)
+
+    const handleChange=(e)=>{
+       let {value,type,name} = e.target;
+       setText({...text,[name]:value})
+    }
+    const {email,password,confirm_pass} = text;
+    const handleSubmit=()=>{
+        if(password === confirm_pass)
+        {
+          setFormData([...formData,text])  
+           setText(init)
+           alert("You are succesfully sign In")
+           navigat("/login")
+        }
+        else{
+          alert("Password is incorrect")
+        }
+    }
+    // console.log("f",formData)
     return (
       <Box border="1px solid lightgray" marginLeft="100px" marginRight="100px">
         <Flex columns={[2, 1]}>
@@ -57,25 +86,26 @@ import {
               <Text mb="8px" fontSize="12">
                 Email Addresh
               </Text>
-              <Input placeholder="Email Addresh" size="md" />
+              <Input placeholder="Email Addresh" size="md" onChange={handleChange} type="email" name="email"  value={formData.name}/>
               <br />
               <br />
               <Text mb="8px" fontSize="12">
                 Password
               </Text>
-              <Input placeholder="Password" size="md" />
+              <Input placeholder="Password" size="md" onChange={handleChange} type="password" name="password" value={formData.password} />
               <br />
               <br />
               <Text mb="8px" fontSize="12">
               Confirm Password
               </Text>
-              <Input placeholder="Confirm Password" size="md" />
+              <Input placeholder="Confirm Password" size="md" onChange={handleChange} type="password" name="confirm_pass" value={formData.confirm_pass} />
               <br />
               <br />
               <Button
                 width="100%"
                 backgroundColor="rgb(247,148,29)"
                 color="white"
+                onClick={handleSubmit}
               >
                 Login
               </Button>

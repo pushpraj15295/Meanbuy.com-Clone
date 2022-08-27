@@ -8,10 +8,44 @@ import {
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AppContext } from "../Context/AppContext";
 
 const Login = () => {
+  const {auth,setAuth,formData}= useContext(AppContext);
+  const navigat = useNavigate();
+  const init={
+    email:"",
+    password:"",
+  }
+  const [text,setText] = useState(init)
+  const [data ,setData] = useState([])
+
+
+  const handleChange=(e)=>{
+     let {value,type,name} = e.target;
+     setText({...text,[name]:value})
+  }
+  const {email,password,confirm_pass} = text;
+  const handleSubmit=()=>{
+    for(let i=0;i<formData.length;i++){
+      if(text.email === formData[i].email && text.password === formData[i].password)
+      {
+        setData([...data,text])  
+         setText(init)
+         alert("Login Successful")
+         setAuth(true)
+         navigat("/")
+         break;
+      }
+      else {
+        alert("incorrect Password or Email Entered")
+        break;
+      }
+    }
+      
+  }
   return (
     <Box border="1px solid lightgray" marginLeft="100px" marginRight="100px">
       <Flex columns={[2, 1]}>
@@ -57,19 +91,20 @@ const Login = () => {
             <Text mb="8px" fontSize="12">
               Email Addresh
             </Text>
-            <Input placeholder="Email Addresh" size="md" />
+            <Input placeholder="Email Addresh" size="md" onChange={handleChange} type="email" name="email"  value={data.email} />
             <br />
             <br />
             <Text mb="8px" fontSize="12">
               Password
             </Text>
-            <Input placeholder="Password" size="md" />
+            <Input placeholder="Password" size="md" onChange={handleChange} type="password" name="password"  value={data.password} />
             <br />
             <br />
             <Button
               width="100%"
               backgroundColor="rgb(247,148,29)"
               color="white"
+              onClick={handleSubmit}
             >
               Login
             </Button>
