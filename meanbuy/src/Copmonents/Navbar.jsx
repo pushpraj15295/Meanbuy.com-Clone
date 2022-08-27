@@ -24,14 +24,15 @@ const Navbar = () => {
   return (
     <Box className={styles.navbar}>
       <Flex
-        justifyContent="space-between"
+        justifyContent="space-evenly"
+        alignItems="center"
         paddingTop="33px"
         paddingLeft="100px"
         paddingRight="100px"
       >
         <Box>
           <Flex gap="3rem">
-            <Box w="180" onClick={() => nav("/")}>
+            <Box className={styles.logo} onClick={() => nav("/")}>
               <Image
                 w="180"
                 h="63"
@@ -39,8 +40,8 @@ const Navbar = () => {
                 alt="Mean-Buy"
               />
             </Box>
-            <Box>
-              <InputGroup w={[200, 240, 280, 330]}>
+            <Box className={styles.inp}>
+              <InputGroup w={[50,100,150,200,320,350,370,400,450,500,550]}>
                 <Input
                   variant="outline"
                   value={value}
@@ -65,7 +66,7 @@ const Navbar = () => {
           </Flex>
         </Box>
         <Flex gap="2.5rem">
-          <Box>
+          <Box className={styles.seller}>
             <Flex gap="0.2rem" fontSize="12">
               <Link to="#">Seller's Corner</Link>
               <p>|</p>
@@ -76,7 +77,7 @@ const Navbar = () => {
               <Link to="#"> Delivery Info</Link>
             </Flex>
           </Box>
-          <Box style={{ display: auth && "none" }}>
+          <Box style={{ display: auth && "none" ,width:"150px"}}>
             <Flex gap="0.3rem" fontSize="14">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +117,7 @@ const Navbar = () => {
         </Flex>
       </Flex>
       <Box padding="16px">
-        <Flex marginLeft="250px" gap="3rem" fontSize="12px">
+        <Flex className={styles.subcatagry}>
           <Popover>
             <Recomandation />
           </Popover>
