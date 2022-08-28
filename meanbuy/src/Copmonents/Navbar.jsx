@@ -11,7 +11,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React, { useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import Recomandation from "../Pages/Categories";
 import { AppContext } from "../Context/AppContext";
 import LogOut from "../Pages/LogOut";
@@ -121,11 +121,11 @@ const Navbar = () => {
           <Popover>
             <Recomandation />
           </Popover>
-          <Link to="#">Flash Sale</Link>
-          <Link to="#">Best Deals</Link>
-          <Link to="#">Shop by Brand</Link>
-          <Link to="#">Trending</Link>
-          <Link to="#">New Arrivals</Link>
+          <NavLink to="/flashsell">Flash Sale</NavLink>
+          <NavLink to="/Bestdeals">Best Deals</NavLink>
+          <NavLink to="/shopbybrand">Shop by Brand</NavLink>
+          <NavLink to="/trending">Trending</NavLink>
+          <NavLink to="/newarrival">New Arrivals</NavLink>
         </Flex>
       </Box>
     </Box>

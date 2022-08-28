@@ -2,7 +2,8 @@
     position: absolute;
     width: 100%;
     background-color: rgb(242,242,242);
-    height: 400px;
+    height: auto;
+    margin-bottom: 400px;
     border-bottom: 1px solid gray;
 }
 h2{
