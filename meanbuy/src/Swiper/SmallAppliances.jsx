@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -13,13 +13,16 @@ import { SmallAppliance } from "../Api.js";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { AppContext } from "../Context/AppContext";
 
 export default function SmallAppliances() {
   const navigat = useNavigate();
-  const handleData = (id) => {
+  const {cardData,setCardData} = useContext(AppContext)
+  const handleData = (id,name,price,image,off,rating) => {
+    setCardData({"id":id,"name":name,"price":price,"image":image,"off":off,"rating":rating})
+    // console.log("sabkuch",id,name,price,image,off)
     navigat("/singlePage/" + id);
   };
-
   return (
     <>
       <Swiper
@@ -36,7 +39,7 @@ export default function SmallAppliances() {
         {SmallAppliance?.map((i) => (
           <SwiperSlide backgroundColor="rgb(239,239,239)">
             <Box
-              onClick={() => handleData(i.id)}
+              onClick={() => handleData(i.id,i.name,i.price,i.image,i.off,i.rating)}
               key={i.id}
             
               margin="8px"

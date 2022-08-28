@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { newArrival } from "../Api.js";
 import { Box, Flex, SimpleGrid, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { AppContext } from "../Context/AppContext.jsx";
 
 const NewARRIVALS = () => {
   const navigat = useNavigate();
-  const handleData = (id) => {
+  const {cardData,setCardData} = useContext(AppContext)
+  const handleData = (id,name,price,image,off,rating) => {
+    setCardData({"id":id,"name":name,"price":price,"image":image,"off":off,"rating":rating})
+    // console.log("sabkuch",id,name,price,image,off)
     navigat("/singlePage/" + id);
   };
   return (
     <SimpleGrid columns={4}>
       {newArrival?.map((i) => (
-        <Box onClick={() => handleData(i.id)} key={i.id} margin="8px">
+        <Box onClick={() => handleData(i.id,i.name,i.price,i.image,i.off,i.rating)} key={i.id} margin="8px">
           <img src={i.image} width="280" height="280" alt={i.id} />
           <Text fontSize="sm">{i.name}</Text>
           <Box
