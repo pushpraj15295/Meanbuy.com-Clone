@@ -25,10 +25,10 @@ export default function ImageSwiper() {
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
       >
-        <SwiperSlide><img src="https://d64lkarmo2mrq.cloudfront.net/img/home/watch-banner4.webp" alt="4" /></SwiperSlide>
-        <SwiperSlide><img src="https://d64lkarmo2mrq.cloudfront.net/img/home/bluetooth2022.webp" alt="3" /></SwiperSlide>
-        <SwiperSlide><img src="https://d64lkarmo2mrq.cloudfront.net/img/home/womenswatches2022.webp" alt="2" /></SwiperSlide>
-        <SwiperSlide><img src="https://d64lkarmo2mrq.cloudfront.net/img/home/nordic2022.webp" alt="1" /></SwiperSlide>
+        <SwiperSlide><img src="https://d64lkarmo2mrq.cloudfront.net/img/home/34535_new_arrivals.webp" alt="4" /></SwiperSlide>
+        <SwiperSlide><img src="https://d64lkarmo2mrq.cloudfront.net/img/home/4544_500_off.webp" alt="3" /></SwiperSlide>
+        <SwiperSlide><img src="https://d64lkarmo2mrq.cloudfront.net/img/home/544545_best_selling.webp" alt="2" /></SwiperSlide>
+        <SwiperSlide><img src="https://d64lkarmo2mrq.cloudfront.net/img/home/34535_new_arrivals.webp" alt="1" /></SwiperSlide>
        
       </Swiper>
     </>
